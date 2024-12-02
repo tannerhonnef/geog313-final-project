@@ -1,0 +1,16 @@
+name: ndvi-lst
+channels:
+  - conda-forge
+dependencies:
+  - jupyterlab=4.2.5
+  - geopandas=1.0.1
+  - geodatasets=2024.8.0
+  - cartopy=0.22.0
+  - shapely=2.0.5
+  - leafmap=0.38.5
+  - boto3=1.35.54
+  - dask=2024.9.1
+  - dask-labextension
+  - distributed=2024.9.1
+  - dask-geopandas=0.4.2
+  - matplotlib
