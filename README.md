@@ -6,11 +6,11 @@ This README describes how to run a container using the dockerfile and executing 
 - This environment has all of the necessary packages necessary to run the code in this assignment.
 - Build the image using the command below.  The . is telling docker to look for the `environment.yml` file in your current working directory. 
 ```
-docker build -t ndvi-lst .
+docker build -t ndvi-lstv .
 ```
-- Run a container from the image `a7-env` using the command below mounting to your current working directory
+- Run a container from the image `ndvi-lstv` using the command below mounting to your current working directory
 ```
-docker run -p 8888:8888 -p 8787:8787 -v $(pwd):/home/assignment ndvi-lst
+docker run -p 8888:8888 -p 8787:8787 -v $(pwd):/home/assignment ndvi-lstv
 ```
 - If Jupyter lab does not automatically launch copy the last link into the browser
 - Once jupyerlab opens, create an ipynb file where the assignment is done
