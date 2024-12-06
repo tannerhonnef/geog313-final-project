@@ -33,7 +33,10 @@ def get_bands(start, end, bbox):
     search = catalog.search(
         collections = ['landsat-c2-l2'],
         bbox = bbox,
-        query=["eo:cloud_cover<5"],
+        query={  # adjusted the query to only include landsat 8 and 9 to get rid of the striping from landsat 7
+        "eo:cloud_cover": {"lt": 20},
+        "platform": {"in": ["landsat-8", "landsat-9"]}
+    },
         datetime = start + "/" + end
     )
     items = search.get_all_items()
@@ -43,11 +46,11 @@ def get_bands(start, end, bbox):
     #     print(item.assets.keys())
     #     break
 
-    stack = stackstac.stack(items, assets=["nir08", "red", "lwir", "qa_pixel"], epsg = 4326, bounds_latlon=bbox)
+    stack = stackstac.stack(items, assets=["nir08", "red", "lwir11", "qa_pixel"], epsg = 4326, bounds_latlon=bbox)
     
     B3 = stackNoClouds.sel(band = "red")
     B4 = stackNoClouds.sel(band = "nir08")
-    LST = stackNoClouds.sel(band = "lwir")
+    LST = stackNoClouds.sel(band = "lwir11")
     B3 = B3.where(B3 > 0, np.nan)
     B4 = B4.where(B4 > 0, np.nan)
     ndvi = (B4 - B3) / (B4 + B3)
