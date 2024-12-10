@@ -1,5 +1,5 @@
 # GEOG 313 Final Project
-This README describes how to run a container using the dockerfile and executing the notebook that is created as a part of the assignment.
+This README describes how to run a container using the dockerfile and executing the notebook that is created as a part of this project.
 
 ## How to Run
 - Set up a new image using the `environment.yml` file.
