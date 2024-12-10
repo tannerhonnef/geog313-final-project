@@ -1,4 +1,4 @@
-# GEOG 213 Final Project
+# GEOG 313 Final Project
 This README describes how to run a container using the dockerfile and executing the notebook that is created as a part of the assignment.
 
 ## How to Run
